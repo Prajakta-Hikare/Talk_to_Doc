@@ -6,3 +6,5 @@ Develop an efficient system that can be used to extract information, ask questio
 
 Overview : 
 This project aims to make a LLM Model that takes a document as an input and make it answerable. It will be locally hosted. It can interact with user.
+
+Figma File Link : https://www.figma.com/file/Gbytgyd9sQKprNhqQ2GswT/Untitled?type=design&node-id=0-1&mode=design&t=g6HqZVgN4xGlFMaI-0
