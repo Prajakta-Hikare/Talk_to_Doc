@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>DOC TALK AI | DOC TALK GPT</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/img/logo_32px_icon.png" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/normalize.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .sidebar-search {
+      margin-top: 20px;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .sidebar-search input[type="text"] {
+      width: calc(100% - 40px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .sidebar-search button {
+      width: 40px;
+      padding: 10px;
+      background-color: #183153;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .sidebar-search button i {
+      font-size: 18px;
+    }
+
+    .sidebar-bottom ul li button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      outline: none;
+    }
+
+    .sidebar-bottom ul li button span {
+      margin-right: 5px;
+    }
+
+    .sidebar-bottom ul li button:hover {
+      background: #2e3d68;
+    }
+
+    .hamburger-menu {
+      margin-top: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .navbar-toggler {
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .navbar-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    .navbar-toggler:focus {
+      outline: none;
+    }
+
+    #voice-input-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    #upload-folder-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      margin-right: 5%;
+      color: #333;
+      /* Adjust the color as needed */
+    }
+
+    #upload-folder-btn:hover {
+      color: #555;
+      /* Adjust the hover color as needed */
+    }
+  </style>
+  <!-- Modernizer -->
+  <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="mobile-header d-lg-none">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+        aria-controls="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="row g-0">
+      <div class="col-xl-2 col-lg-3">
+        <div class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvas">
+          <button type="button" class="btn-close btn-close-white" data-bs-toggle="offcanvas" aria-label="Close"
+            data-bs-target="#offcanvas"></button>
+          <div class="hamburger-menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="sidebar-search">
+            <input type="text" placeholder="Search..." />
+            <button type="button"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="sidebar-logo">
+            <a href="#"><img src="../assets/img/logo_footer.png" alt="" /></a>
+          </div>
+          <div class="sidebar-bottom">
+            <ul>
+              <li>
+                <a href="#" id="new-chat-option" onclick="reloadPage()">
+                  <span><i class="fa-solid fa-comment"></i></span>New Chat
+                </a>
+              </li>
+              <li>
+                <a href="#" id="profile-option">
+                  <span><i class="fa-regular fa-user-circle"></i></span>Profile
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-10 col-lg-9">
+        <div class="chat-wrapper">
+          <div class="chat-body form">
+            <div class="bot-inbox inbox">
+              <div class="wrap">
+                <div class="icon">
+                  <img src="../assets/img/logo_100px.png" alt="" />
+                </div>
+                <div class="msg-header">
+                  <p id="hello-text">
+                    Hello, Welcome to Doc Talk GPT. Please key in your question.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-bottom">
+            <div class="chat-input">
+              <input type="text" id="data" placeholder="Type something here.." required />
+              <button id="voice-input-btn"><i class="fas fa-microphone"></i></button>
+              <button id="upload-folder-btn"><i class="fas fa-folder"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="preloader">
+    <div id="loader"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/t.min.js"></script>
+  <script>
+    $(window).on("load", function () {
+      $("#loader").fadeOut(100, function () {
+        $("#preloader").fadeOut(200);
+        $("body").removeClass("loading");
+      });
+    });
+    $(document).ready(function ($) {
+      // Animation Text
+      $("#hello-text").t({
+        pause_on_tab_switch: false,
+        blink: false,
+        blink_perm: true,
+        speed: 20,
+        speed_vary: false,
+        fin: function () {
+          $(".t-caret").fadeOut();
+        },
+      });
+
+      var i = 0;
+
+      // For Input Enter key
+      $("#data").keyup(function (event) {
+        if (event.keyCode === 13) {
+          $value = $("#data").val();
+          $msg =
+            '<div class="user-inbox inbox"><div class="wrap"><div class="icon"><img src="assets/img/x2.png" alt="" /></div><div class="msg-header"><p>' +
+            $value +
+            "</p></div></div></div>";
+          $(".form").append($msg);
+          $("#data").val("");
+
+          $replay =
+            '<div class="bot-inbox inbox"><div class="wrap"><div class="icon"><img src="../assets/img/logo_100px.png" alt=""></div><div class="msg-header" id="chat-' +
+            i +
+            '"><p>&nbsp;</p></div></div>';
+
+          $(".form").append($replay);
+          $(".form").scrollTop($(".form")[0].scrollHeight);
+
+          $("#chat-" + i + " p").t();
+
+          console.log($value);
+          $.ajax({
+            url: "https://office.prolocalize.com/xai/gpt/message.php",
+            type: "POST",
+            data: "text=" + $value,
+            success: function (result) {
+              // Handle successful response
+              const botResponse = '<div class="bot-inbox inbox"><div class="wrap"><div class="icon"><img src="../assets/img/logo_100px.png" alt=""></div><div class="msg-header"><p>' + result + '</p></div></div></div>';
+              $(".form").append(botResponse);
+            },
+            error: function (xhr, status, error) {
+              const errorMessage = "Oops! Something went wrong. Please try again later.";
+              const botResponse = '<div class="bot-inbox inbox"><div class="wrap"><div class="icon"><img src="../assets/img/logo_100px.png" alt=""></div><div class="msg-header"><p>' + errorMessage + '</p></div></div></div>';
+              $(".form").append(botResponse);
+            }
+          });
+
+          // For Button
+          $("#send-btn").on("click", function () {
+            // When the "Send" button is clicked...
+            $value = $("#data").val(); // Get the value of the input field
+            $msg =
+              '<div class="user-inbox inbox"><div class="wrap"><div class="icon"><img src="assets/img/x2.png" alt="" /></div><div class="msg-header"><p>' +
+              $value +
+              "</p></div></div></div>"; // Create a message container for the user's message
+            $(".form").append($msg); // Append the user's message to the chat container
+            $("#data").val(""); // Clear the input field
+
+            $.ajax({
+              // Send an AJAX request to the server
+              url: "https://office.prolocalize.com/xai/gpt/message.php", // The URL to send the request to
+              type: "POST", // The HTTP method to use
+              data: "text=" + $value, // The data to send in the request
+              success: function (result) {
+                // If the request is successful...
+                $replay =
+                  '<div class="bot-inbox inbox"><div class="wrap"><div class="icon"><img src="assets/img/x2.png" alt=""></div><div class="msg-header" id="chat-' +
+                  i +
+                  '"><p>' +
+                  result +
+                  "</p></div></div>"; // Create a message container for the bot's response
+
+                $(".form").append($replay); // Append the bot's response to the chat container
+                $("#chat-" + i).t({ caret: false });
+                $(".form").scrollTop($(".form")[0].scrollHeight); // Scroll to the bottom of the chat container
+                i++;
+              },
+            });
+          });
+
+          // Initialize Speech Recognition
+          const recognition = new webkitSpeechRecognition();
+          recognition.lang = 'en-US';
+
+          // Start recognition when the microphone button is clicked
+          document.getElementById('voice-input-btn').addEventListener('click', () => {
+            recognition.start();
+          });
+
+          // Handle recognition results
+          recognition.onresult = (event) => {
+            const result = event.results[0][0].transcript;
+            document.getElementById('data').value = result;
+            submitMessage(result); // Submit the message when recognition ends
+          };
+
+          // Function to submit message
+          function submitMessage(message) {
+            // Handle submission logic here, you can use AJAX or any other method to send the message to your server
+            // Example AJAX request:
+            $.ajax({
+              url: "https://office.prolocalize.com/xai/gpt/message.php",
+              type: "POST",
+              data: "text=" + message,
+              success: function (result) {
+                const botResponse = '<div class="bot-inbox inbox"><div class="wrap"><div class="icon"><img src="../assets/img/logo_100px.png" alt=""></div><div class="msg-header"><p>' + result + '</p></div></div></div>';
+                $(".form").append(botResponse);
+              }
+            });
+          }
+        }
+      });
+
+      function reloadPage() {
+        location.reload();
+      }
+
+      document.getElementById('upload-folder-btn').addEventListener('click', function () {
+        // Create an input element of type file
+        var input = document.createElement('input');
+        input.type = 'file';
+        // Allow selecting directories (folders)
+        input.setAttribute('webkitdirectory', true);
+        input.setAttribute('directory', true);
+        // Trigger a click event on the input element to open the file dialog
+        input.click();
+      });
+    }); // Close document.ready
+  </script>
+</body>
+
+</html>
