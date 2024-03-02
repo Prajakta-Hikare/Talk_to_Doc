@@ -1,0 +1,333 @@
+body {
+  background-color: #000000;
+}
+
+nav {
+  display: Flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 15px 20px;
+}
+
+nav img {
+  height: 60px;
+}
+
+nav .left {
+  margin-left: 30px;
+}
+
+nav .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 23px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: rgb(181, 177, 182);
+}
+
+.bold-text {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#features-text {
+  display: flex;
+  align-items: center;
+}
+
+#typewriter-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #000;
+  animation: typing 2s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+      border-color: transparent;
+  }
+  50% {
+      border-color: #000;
+  }
+}
+
+@keyframes moveBackAndForth {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(120px);
+  }
+}
+
+.animated-image {
+  animation: moveBackAndForth 4s linear infinite;
+  margin-top : 10px;
+}
+
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button svg:hover {
+  fill: rgb(181, 177, 182);
+}
+
+.container4 {
+  height: 100vh;
+  padding: 20px;
+  color: white;
+  text-align: left;
+  margin-left: 80px;
+  /* Push the container to the right */
+}
+
+.heading h1 {
+  font-size: 80px;
+  margin-top: 80px;
+  /* Remove the top margin to align with the paragraph */
+}
+
+/* Additional styling for the button */
+.lc-block .btn {
+  background-color: white;
+  color: black;
+  border-color: white;
+}
+
+#features {
+  height: 100vh;
+}
+
+#features h1 {
+  text-align: center;
+  color: #ffffff;
+  padding: 30px;
+  margin: 0;
+  font-size: 55px;
+}
+
+#features h6 {
+  text-align: center;
+  color: #ac7474;
+  font-size: 20px;
+}
+
+.flex {
+  display: flex;
+  gap: 6%;
+  justify-content: center;
+  margin-top: 100px;
+  align-items: center;
+  color: white;
+  padding: 25px 55px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#service {
+  background: black;
+}
+
+#service h1 {
+  text-align: center;
+  color: #ffffff;
+  padding: 30px;
+  margin: 0;
+  font-size: 55px;
+}
+
+.service {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.service .left,
+.service .right {
+  color: #ffffff;
+  max-width: 30%;
+  margin-left: 100px;
+  /* Adjust as needed */
+  margin-right: 100px;
+  /* Adjust as needed */
+}
+
+@keyframes zoomInOut {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+}
+
+#service .service img {
+  animation: zoomInOut 2s ease-in-out infinite;
+}
+
+/* Add this CSS to style the line */
+.line-between-sections {
+  border: none;
+  border-top: 2px solid white;
+  /* Adjust the border-top to change line color and height */
+  margin: 20px 0;
+  /* Adjust margin for spacing */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  /* Adjust the shadow */
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#footer-section {
+  background-color: #000000ff;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 3rem 1rem;
+}
+
+.col {
+  min-width: 250px;
+  color: #f2f2f2f2;
+  font-family: poppins;
+  padding: 0 2rem;
+}
+
+.col .logo {
+  width: 100px;
+  margin-bottom: 25px;
+}
+
+.col h3 {
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.col h3::after {
+  content: '';
+  height: 3px;
+  width: 0px;
+  background-color: rgb(142, 138, 139);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+
+}
+
+.col h3:hover::after {
+  width: 30px
+}
+
+.col .links a {
+  display: block;
+  text-decoration: none;
+  color: #f2f2f2;
+  margin-bottom: 5px;
+  margin-right: 25px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.col .links a:last-child {
+  margin-right: 0; /* Remove right margin for the last child to prevent extra spacing */
+}
+
+.col .links a::before {
+  content: '';
+  height: 16px;
+  width: 3px;
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  background-color: rgb(142, 138, 139);
+  transition: 0.5s ease;
+  opacity: 0;
+}
+
+.col .links a:hover::before {
+  opacity: 1;
+}
+
+.col .links a:hover {
+  transform: translateX(-8px);
+  color: rgb(142, 138, 139);
+}
+
+.col .contact-details {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.col .contact-details i {
+  margin-right: 15px;
+}
+
+/********** Responsive Design ********/
+@media(max-width:900px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px;
+  }
+}
+
+@media(max-width:768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
